@@ -1,7 +1,8 @@
 "use client";
 
+import React, { useMemo } from "react";
 import { motion, HTMLMotionProps } from "framer-motion";
-import { cn } from "@/lib/utils"; // Предположим наличие утилиты cn или напишем свою
+import { cn } from "@/lib/utils";
 
 interface ButtonProps extends HTMLMotionProps<"button"> {
   variant?: "primary" | "secondary";
@@ -20,25 +21,27 @@ const sizes = {
   lg: "px-10 md:px-12 py-5 md:py-6 text-lg md:text-xl uppercase tracking-widest shadow-[0_0_30px_rgba(3,253,0,0.2)]"
 };
 
-export function Button({ 
+export const Button = React.memo(({ 
   variant = "primary",
   size = "default", 
   children, 
   className, 
   icon, 
   ...props 
-}: ButtonProps) {
+}: ButtonProps) => {
+  const buttonClasses = useMemo(() => cn(
+    "rounded-xl font-headline font-bold transition-transform duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    "flex items-center justify-center gap-2",
+    variants[variant],
+    sizes[size],
+    className
+  ), [variant, size, className]);
+
   return (
     <motion.button 
       whileHover={{ scale: 0.98 }}
       whileTap={{ scale: 0.95 }}
-      className={cn(
-        "rounded-xl font-headline font-bold transition-transform duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-        "flex items-center justify-center gap-2",
-        variants[variant],
-        sizes[size],
-        className
-      )} 
+      className={buttonClasses} 
       {...props}
     >
       {children}
@@ -49,6 +52,9 @@ export function Button({
       )}
     </motion.button>
   );
-}
+});
+
+Button.displayName = "Button";
+
 
 

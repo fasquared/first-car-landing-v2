@@ -25,49 +25,16 @@ interface CarouselProps {
   showNavigation?: boolean
 }
 
-export const CardCarousel: React.FC<CarouselProps> = ({
+export const CardCarousel: React.FC<CarouselProps> = React.memo(({
   images,
   autoplayDelay = 3000,
   showPagination = false,
   showNavigation = true,
 }) => {
-  const css = `
-  .swiper {
-    width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  
-  .swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 240px;
-    height: 400px;
-    @media (min-width: 768px) {
-      width: 280px;
-      height: 460px;
-    }
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  
-  .swiper-3d .swiper-slide-shadow-left {
-    background-image: none;
-  }
-  .swiper-3d .swiper-slide-shadow-right{
-    background: none;
-  }
-  `
   return (
     <div className="w-full">
-      <style>{css}</style>
       <div className="flex w-full items-center justify-center gap-4">
+
         <div className="w-full">
           <Swiper
             spaceBetween={20}
@@ -119,4 +86,6 @@ export const CardCarousel: React.FC<CarouselProps> = ({
       </div>
     </div>
   )
-}
+})
+
+CardCarousel.displayName = "CardCarousel"

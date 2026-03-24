@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { cardVariants, iconVariants } from "@/lib/animations";
 
 interface StepCardProps {
   number: string;
@@ -13,47 +14,8 @@ interface StepCardProps {
   isWide?: boolean;
 }
 
-const cardVariants: Variants = {
-  initial: { opacity: 0, y: 30 },
-  visible: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: index * 0.1,
-      duration: 0.8,
-      ease: [0.21, 0.47, 0.32, 0.98],
-    },
-  }),
-  hover: {
-    y: -10,
-    transition: {
-      type: "spring",
-      stiffness: 400,
-      damping: 25,
-    },
-  },
-};
-
-const iconVariants: Variants = {
-  initial: { scale: 0.8, opacity: 0 },
-  visible: { 
-    scale: 1, 
-    opacity: 1,
-    transition: { 
-      type: "spring", 
-      stiffness: 260, 
-      damping: 20,
-      delay: 0.2
-    }
-  },
-  hover: { 
-    scale: 1.1,
-    rotate: [0, -5, 5, 0],
-    transition: { duration: 0.4 }
-  }
-};
-
 export const StepCard = React.memo(({ number, title, description, icon, index, isWide = false }: StepCardProps) => {
+
   return (
     <motion.div
       variants={cardVariants}
