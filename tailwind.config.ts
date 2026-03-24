@@ -62,9 +62,9 @@ const config: Config = {
         "on-secondary-fixed-variant": "#006a30",
         },
         fontFamily: {
-            "headline": ["Manrope", "sans-serif"],
-            "body": ["Inter", "sans-serif"],
-            "label": ["Inter", "sans-serif"]
+            "headline": ["var(--font-manrope)", "sans-serif"],
+            "body": ["var(--font-inter)", "sans-serif"],
+            "label": ["var(--font-inter)", "sans-serif"]
         },
         borderRadius: {
             "DEFAULT": "0.25rem",

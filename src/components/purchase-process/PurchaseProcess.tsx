@@ -1,10 +1,14 @@
 "use client";
 
 import React from "react";
-import { motion, Variants } from "framer-motion";
+import { m } from "framer-motion";
 import { Button } from "../ui/Button";
 import { cn } from "@/lib/utils";
 import { StepCard } from "./StepCard";
+import { 
+  fadeInUp,
+  staggerContainer,
+} from "@/lib/animations";
 import { 
   IconCalculation, 
   IconContract, 
@@ -12,7 +16,8 @@ import {
   IconCustoms 
 } from "./StepIcons";
 
-const steps = [
+// Данные вынесены для чистоты компонента
+const purchaseSteps = [
   {
     number: "01",
     title: "ПРОСЧЕТ СТОИМОСТИ",
@@ -39,16 +44,6 @@ const steps = [
   },
 ];
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
 import { useModal } from "../providers/ModalProvider";
 
 export const PurchaseProcess = () => {
@@ -58,30 +53,31 @@ export const PurchaseProcess = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 flex flex-col gap-16 md:gap-24 relative">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <m.h2
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="show"
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
             className="font-headline text-4xl md:text-5xl lg:text-[4rem] font-black uppercase tracking-tight text-white leading-[1.05]"
           >
             ПРОСТАЯ МОДЕЛЬ <br className="hidden md:block" /> ПОКУПКИ АВТОМОБИЛЯ
-          </motion.h2>
+          </m.h2>
         </div>
 
         {/* Cards Grid: Bento Layout (7/5 + 5/7) */}
-        <motion.div
-          variants={containerVariants}
+        <m.div 
+          variants={staggerContainer}
           initial="hidden"
-          whileInView="visible"
+          whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch relative z-10"
         >
-          {steps.map((step, index) => {
+          {purchaseSteps.map((step, index) => {
             const isWide = (index === 0 || index === 3);
             return (
-              <div 
+              <m.div 
                 key={step.number} 
+                variants={fadeInUp}
                 className={cn(
                   "col-span-1",
                   isWide ? "lg:col-span-7" : "lg:col-span-5"
@@ -92,18 +88,17 @@ export const PurchaseProcess = () => {
                   {...step}
                   isWide={isWide}
                 />
-              </div>
+              </m.div>
             );
           })}
-        </motion.div>
+        </m.div>
 
         {/* CTA Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <m.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          style={{ willChange: "transform, opacity" }}
           className="flex justify-center mt-6 md:mt-8 relative z-10"
         >
           <Button
@@ -113,7 +108,7 @@ export const PurchaseProcess = () => {
           >
             Рассчитать стоимость
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -1,9 +1,22 @@
+import dynamic from "next/dynamic";
 import { PurchaseProcess } from "@/components/purchase-process/PurchaseProcess";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Reviews } from "@/components/sections/Reviews/Reviews";
-import { Questions } from "@/components/sections/Questions/Questions";
-import { Footer } from "@/components/sections/Footer/Footer";
+
+const Reviews = dynamic(() => import("@/components/sections/Reviews/Reviews").then(mod => mod.Reviews), {
+  ssr: true,
+  loading: () => <div className="min-h-[400px]" />
+});
+
+const Questions = dynamic(() => import("@/components/sections/Questions/Questions").then(mod => mod.Questions), {
+  ssr: true,
+  loading: () => <div className="min-h-[400px]" />
+});
+
+const Footer = dynamic(() => import("@/components/sections/Footer/Footer").then(mod => mod.Footer), {
+  ssr: true
+});
+
 import { SITE_CONTENT } from "@/config/settings";
 export default function Home() {
   const jsonLd = {

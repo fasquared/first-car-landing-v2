@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { QuestionsForm } from "../../forms/QuestionsForm";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { SITE_CONTENT } from "@/config/settings";
@@ -13,7 +13,7 @@ export function Questions() {
       <div className="absolute -z-10 -bottom-24 -left-24 w-96 h-96 bg-primary-container/5 rounded-full blur-[120px]" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <motion.div 
+        <m.div 
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
@@ -21,7 +21,7 @@ export function Questions() {
           className="flex flex-col gap-16 md:gap-24"
         >
           {/* Заголовки: Центрированы как в блоке Reviews */}
-          <motion.div variants={fadeInUp} className="max-w-4xl mx-auto text-center relative z-10">
+          <m.div variants={fadeInUp} className="max-w-4xl mx-auto text-center relative z-10">
             <h2 className="font-headline text-4xl md:text-5xl lg:text-[4rem] font-black uppercase tracking-tight text-white leading-[1.05] mb-6">
               ОСТАЛИСЬ <br className="md:hidden" />
               <span className="text-primary-container">ВОПРОСЫ?</span>
@@ -29,12 +29,12 @@ export function Questions() {
             <p className="text-zinc-400 text-lg md:text-xl font-medium max-w-none mx-auto leading-relaxed">
               Запишитесь на презентацию выбранной вами модели к нам в офис в&nbsp;Москве.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Контент: Равновесная сетка */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-stretch max-w-6xl mx-auto w-full relative z-10">
             {/* Левая колонка: Фото сотрудника в стиле Hero */}
-            <motion.div 
+            <m.div 
               variants={fadeInUp}
               className="relative group flex flex-col"
             >
@@ -62,17 +62,17 @@ export function Questions() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Правая колонка: Форма */}
-            <motion.div 
+            <m.div 
               variants={fadeInUp}
               className="flex flex-col h-full"
             >
               <QuestionsForm />
-            </motion.div>
+            </m.div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

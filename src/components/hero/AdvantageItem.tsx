@@ -1,24 +1,34 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { fadeInUp } from "@/lib/animations";
+import { m } from "framer-motion";
+import { fadeInUp, iconVariants } from "@/lib/animations";
 
 interface AdvantageItemProps {
-  icon: string;
+  icon: React.ReactNode;
   text: string;
 }
 
 export const AdvantageItem = React.memo(({ icon, text }: AdvantageItemProps) => {
   return (
-    <motion.li variants={fadeInUp} className="flex items-center gap-4 group">
-      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-fixed shadow-[0_0_15px_rgba(3,253,0,0.4)]">
-        <span className="material-symbols-outlined text-lg">{icon}</span>
-      </div>
-      <span className="text-lg md:text-xl font-medium text-zinc-200 group-hover:text-white transition-colors">
+    <m.li 
+      variants={fadeInUp} 
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-50px" }}
+      className="flex items-center gap-4 group cursor-default"
+    >
+      <m.div 
+        variants={iconVariants}
+        whileHover="hover"
+        className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-fixed shadow-[0_0_20px_rgba(3,253,0,0.3)] transition-shadow duration-300 group-hover:shadow-[0_0_30px_rgba(3,253,0,0.5)]"
+      >
+        {icon}
+      </m.div>
+      <span className="text-lg md:text-xl font-medium text-zinc-300 group-hover:text-white transition-all duration-300 group-hover:translate-x-1">
         {text}
       </span>
-    </motion.li>
+    </m.li>
   );
 });
 

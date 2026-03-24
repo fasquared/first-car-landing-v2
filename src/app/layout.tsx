@@ -1,5 +1,19 @@
 import type { Metadata } from "next";
+import { Inter, Manrope } from "next/font/google";
+import { cn } from "@/lib/utils";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-manrope",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://first-car.ru"),
@@ -31,6 +45,7 @@ export const metadata: Metadata = {
 
 import { ModalProvider } from "@/components/providers/ModalProvider";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+import { LazyMotionProvider } from "@/components/providers/LazyMotionProvider";
 
 export default function RootLayout({
   children,
@@ -38,13 +53,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className="dark">
+    <html lang="ru" className={cn("dark", inter.variable, manrope.variable)}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+        />
+      </head>
       <body className="selection:bg-primary-container selection:text-on-primary-container bg-background text-on-background font-body overflow-x-hidden antialiased">
-        <SmoothScrollProvider>
-          <ModalProvider>
-            {children}
-          </ModalProvider>
-        </SmoothScrollProvider>
+        <LazyMotionProvider>
+          <SmoothScrollProvider>
+            <ModalProvider>
+              {children}
+            </ModalProvider>
+          </SmoothScrollProvider>
+        </LazyMotionProvider>
       </body>
     </html>
   );

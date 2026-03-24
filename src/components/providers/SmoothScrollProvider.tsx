@@ -1,9 +1,8 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import Lenis from "lenis";
+import type Lenis from "lenis";
 
-// Типизированный контекст вместо `window as any`
 interface LenisContextValue {
   lenis: Lenis | null;
 }
@@ -18,26 +17,43 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
   useEffect(() => {
-    const instance = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      lerp: 0.08,
-      wheelMultiplier: 1,
-      infinite: false,
-    });
-
-    setLenis(instance);
-
+    let instance: Lenis | null = null;
     let rafId: number;
-    function raf(time: number) {
-      instance.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-    rafId = requestAnimationFrame(raf);
+
+    const initLenis = async () => {
+      try {
+        const LenisModule = await import("lenis");
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const LenisLib = (LenisModule as any).default || LenisModule;
+        
+        instance = new LenisLib({
+          duration: 1.2,
+          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          lerp: 0.08,
+          wheelMultiplier: 1,
+          infinite: false,
+        });
+
+        setLenis(instance);
+
+        const raf = (time: number) => {
+          instance?.raf(time);
+          rafId = requestAnimationFrame(raf);
+        };
+        rafId = requestAnimationFrame(raf);
+      } catch (err) {
+        console.error("Lenis init error:", err);
+      }
+    };
+
+    initLenis();
 
     return () => {
-      cancelAnimationFrame(rafId);
-      instance.destroy();
+      if (rafId) cancelAnimationFrame(rafId);
+      if (instance) {
+        instance.destroy();
+        instance = null;
+      }
     };
   }, []);
 

@@ -11,6 +11,7 @@ export const FooterMap = React.memo(() => (
       width="100%" 
       height="100%" 
       allowFullScreen={true} 
+      loading="lazy"
       style={{ border: 0, filter: "grayscale(1) invert(0.9) contrast(1.2)" }} 
       className="absolute inset-0"
     ></iframe>

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useCallback } from "react";
+import { m } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/Button";
@@ -16,8 +16,11 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { openModal } = useModal();
 
+  const toggleMenu = useCallback(() => setIsOpen(prev => !prev), []);
+  const closeMenu = useCallback(() => setIsOpen(false), []);
+
   return (
-    <motion.header 
+    <m.header 
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -26,12 +29,13 @@ export function Header() {
       <div className="flex justify-between items-center px-6 md:px-10 py-5 max-w-7xl mx-auto relative z-50">
         {/* Brand Logo */}
         <div className="flex items-center">
-          <Link href="/" className="block">
+          <Link href="/" className="block" aria-label="На главную">
             <Image 
               src="/images/logo.png" 
-              alt="FIRST CAR" 
+              alt="FIRST CAR Logo" 
               width={160}
               height={40}
+              priority
               className="h-8 md:h-10 w-auto"
               style={{ filter: "brightness(0) invert(1)" }}
             />
@@ -54,12 +58,12 @@ export function Header() {
           </Button>
 
           {/* Burger Button */}
-          <BurgerButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+          <BurgerButton isOpen={isOpen} onClick={toggleMenu} />
         </div>
       </div>
 
-      <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
-    </motion.header>
+      <MobileMenu isOpen={isOpen} onClose={closeMenu} />
+    </m.header>
   );
 }
 

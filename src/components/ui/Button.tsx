@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo } from "react";
-import { motion, HTMLMotionProps } from "framer-motion";
+import { m, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface ButtonProps extends HTMLMotionProps<"button"> {
@@ -38,7 +38,7 @@ export const Button = React.memo(({
   ), [variant, size, className]);
 
   return (
-    <motion.button 
+    <m.button 
       whileHover={{ scale: 0.98 }}
       whileTap={{ scale: 0.95 }}
       className={buttonClasses} 
@@ -50,7 +50,7 @@ export const Button = React.memo(({
           {icon}
         </span>
       )}
-    </motion.button>
+    </m.button>
   );
 });
 
