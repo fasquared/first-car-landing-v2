@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, ReactNode, RefObject, useRef } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import Lenis from "lenis";
 
 // Типизированный контекст вместо `window as any`

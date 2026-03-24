@@ -51,8 +51,9 @@ export async function submitForm(formData: FormData) {
       if (!response.ok) {
         console.error("Telegram API error:", responseData);
       }
-    } catch (e: any) {
-      console.error("Telegram error detail (likely blocked locally):", e.message);
+    } catch (e) {
+      const error = e as Error;
+      console.error("Telegram error detail (likely blocked locally):", error.message);
       // Не возвращаем ошибку, чтобы форма не блокировалась для пользователя
     }
   }
@@ -77,8 +78,9 @@ export async function submitForm(formData: FormData) {
         `,
       });
       console.log("Email sent successfully");
-    } catch (e: any) {
-      console.error("Resend error detail:", e.message);
+    } catch (e) {
+      const error = e as Error;
+      console.error("Resend error detail:", error.message);
     }
   }
 
@@ -93,8 +95,9 @@ export async function submitForm(formData: FormData) {
         body: JSON.stringify({ name, phone: `'${phone}`, formType }),
       });
       console.log("Google Sheets submission successful");
-    } catch (e: any) {
-      console.error("Google Sheets error detail:", e.message);
+    } catch (e) {
+      const error = e as Error;
+      console.error("Google Sheets error detail:", error.message);
     }
   } else {
     console.warn("GOOGLE_SHEETS_WEBHOOK_URL is missing in env");

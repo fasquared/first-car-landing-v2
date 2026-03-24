@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "./ui/Button";
 import { NavLinks } from "./header/NavLinks";
 import { MobileMenu } from "./header/MobileMenu";
@@ -26,9 +27,11 @@ export function Header() {
         {/* Brand Logo */}
         <div className="flex items-center">
           <Link href="/" className="block">
-            <img 
+            <Image 
               src="/images/logo.png" 
               alt="FIRST CAR" 
+              width={160}
+              height={40}
               className="h-8 md:h-10 w-auto"
               style={{ filter: "brightness(0) invert(1)" }}
             />

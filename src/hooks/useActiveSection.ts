@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 // Хук отслеживает активную секцию через IntersectionObserver
 export function useActiveSection(sectionIds: string[]) {

@@ -8,15 +8,12 @@ import "swiper/css"
 import "swiper/css/effect-coverflow"
 import "swiper/css/pagination"
 import "swiper/css/navigation"
-import { cn } from "@/lib/utils"
 import {
   Autoplay,
   EffectCoverflow,
   Navigation,
   Pagination,
 } from "swiper/modules"
-
-import { Badge } from "@/components/ui/badge"
 
 interface CarouselProps {
   images: { src: string; alt: string }[]
