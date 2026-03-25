@@ -18,7 +18,7 @@ const variants = {
 
 const sizes = {
   default: "px-6 py-2.5 text-sm md:text-base",
-  lg: "px-10 md:px-12 py-5 md:py-6 text-lg md:text-xl uppercase tracking-widest shadow-[0_0_30px_rgba(3,253,0,0.2)]"
+  lg: "px-6 md:px-12 py-3 md:py-6 text-lg md:text-xl uppercase md:tracking-widest shadow-[0_0_30px_rgba(3,253,0,0.2)]"
 };
 
 export const Button = React.memo(({ 
@@ -44,12 +44,14 @@ export const Button = React.memo(({
       className={buttonClasses} 
       {...props}
     >
-      {children}
-      {icon && (
-        <span className="material-symbols-outlined normal-case tracking-normal">
-          {icon}
-        </span>
-      )}
+      <span className="whitespace-nowrap flex items-center gap-2">
+        {children}
+        {icon && (
+          <span className="material-symbols-outlined normal-case tracking-normal">
+            {icon}
+          </span>
+        )}
+      </span>
     </m.button>
   );
 });

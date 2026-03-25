@@ -8,7 +8,7 @@ import { SITE_CONTENT } from "@/config/settings";
 
 export function Questions() {
   return (
-    <section className="py-24 bg-background overflow-hidden relative" id="questions">
+    <section className="py-12 md:py-24 bg-background overflow-hidden relative" id="questions">
       {/* Глобальные декоративные элементы фона */}
       <div className="absolute -z-10 -bottom-24 -left-24 w-96 h-96 bg-primary-container/5 rounded-full blur-[120px]" />
       
@@ -18,7 +18,7 @@ export function Questions() {
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="flex flex-col gap-16 md:gap-24"
+          className="flex flex-col gap-12 md:gap-24"
         >
           {/* Заголовки: Центрированы как в блоке Reviews */}
           <m.div variants={fadeInUp} className="max-w-4xl mx-auto text-center relative z-10">
@@ -36,9 +36,9 @@ export function Questions() {
             {/* Левая колонка: Фото сотрудника в стиле Hero */}
             <m.div 
               variants={fadeInUp}
-              className="relative group flex flex-col"
+              className="relative group flex flex-col max-w-lg lg:max-w-none mx-auto w-full"
             >
-              <div className="relative flex-1 aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden border-4 border-primary-container shadow-[0_0_40px_rgba(3,253,0,0.2)] bg-zinc-900/50">
+              <div className="relative flex-1 aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden border-4 border-primary-container shadow-[0_0_40px_rgba(3,253,0,0.2)] bg-zinc-900/50 w-full">
                 <Image
                   src={SITE_CONTENT.MANAGER.IMAGE}
                   alt={SITE_CONTENT.MANAGER.NAME}
@@ -67,7 +67,7 @@ export function Questions() {
             {/* Правая колонка: Форма */}
             <m.div 
               variants={fadeInUp}
-              className="flex flex-col h-full"
+              className="flex flex-col h-full max-w-lg lg:max-w-none mx-auto w-full"
             >
               <QuestionsForm />
             </m.div>

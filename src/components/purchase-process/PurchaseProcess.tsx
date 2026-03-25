@@ -50,7 +50,7 @@ export const PurchaseProcess = () => {
   const { openModal } = useModal();
   return (
     <section id="steps" className="bg-background w-full select-none overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 flex flex-col gap-16 md:gap-24 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-24 flex flex-col gap-12 md:gap-24 relative">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <m.h2

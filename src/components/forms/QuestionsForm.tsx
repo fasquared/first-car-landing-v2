@@ -70,7 +70,7 @@ export function QuestionsForm({ onSuccess }: QuestionsFormProps) {
   }
 
   return (
-    <div className="flex-1 p-8 md:p-10 bg-zinc-950/60 backdrop-blur-2xl rounded-[2rem] md:rounded-[3rem] border border-white/10 shadow-2xl flex flex-col justify-center transition-all duration-300 hover:border-white/20 relative overflow-hidden group">
+    <div className="flex-1 p-6 md:p-10 bg-zinc-950/60 backdrop-blur-2xl rounded-[2rem] md:rounded-[3rem] border-4 border-white/10 shadow-2xl flex flex-col justify-center transition-all duration-300 hover:border-white/20 relative overflow-hidden group w-full">
       {/* Subtle Accent Glow */}
       <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary-container/10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
       

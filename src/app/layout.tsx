@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -42,6 +42,13 @@ export const metadata: Metadata = {
     images: ["/images/og-image.jpg"],
   },
 };
+ 
+export const viewport: Viewport = {
+  themeColor: "#0e0e0e",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 import { ModalProvider } from "@/components/providers/ModalProvider";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
@@ -54,12 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={cn("dark", inter.variable, manrope.variable)}>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
-        />
-      </head>
+      <head />
       <body className="selection:bg-primary-container selection:text-on-primary-container bg-background text-on-background font-body overflow-x-hidden antialiased">
         <LazyMotionProvider>
           <SmoothScrollProvider>

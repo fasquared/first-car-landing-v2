@@ -42,7 +42,7 @@ export function HeroContent() {
       
       <m.h1 
         variants={fadeInUp}
-        className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black leading-[1.05] tracking-tight text-white mb-8 select-none"
+        className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black leading-[1.05] tracking-tight text-white mb-5 md:mb-8 select-none"
       >
         ПРИВЕЗЁМ&nbsp;НОВЫЙ <br />
         <span className="text-primary-container uppercase">{SITE_CONTENT.CAR_NAME}</span> <br />
@@ -51,7 +51,7 @@ export function HeroContent() {
   
       <m.ul 
         variants={staggerContainer} 
-        className="space-y-6 mb-12"
+        className="space-y-6 mb-8 md:mb-12"
         aria-label="Наши преимущества"
       >
         {renderedAdvantages}

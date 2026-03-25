@@ -11,8 +11,8 @@ import { fadeInUp } from "@/lib/animations"
 export function Reviews() {
   const { openModal } = useModal()
   return (
-    <section className="py-24 overflow-hidden bg-background" id="reviews" aria-labelledby="reviews-heading">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col gap-16 md:gap-24 relative">
+    <section className="py-12 md:py-24 overflow-hidden bg-background" id="reviews" aria-labelledby="reviews-heading">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col gap-12 md:gap-24 relative">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <m.h2 
             variants={fadeInUp}

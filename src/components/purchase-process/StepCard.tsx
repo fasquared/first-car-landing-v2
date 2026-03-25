@@ -25,7 +25,7 @@ export const StepCard = React.memo(({ number, title, description, icon, index }:
       whileHover="hover"
       viewport={{ once: true, margin: "-50px" }}
       className={cn(
-        "group relative flex w-full flex-col justify-between overflow-hidden",
+        "group relative flex w-full flex-col justify-start overflow-hidden",
         "h-[320px] md:h-[360px]",
         "rounded-[2.5rem] border border-white/10 bg-zinc-900/40 p-8 md:p-10 text-white shadow-2xl backdrop-blur-2xl",
         "transition-colors duration-500 hover:border-primary-container/30 hover:bg-zinc-900/60"
@@ -40,16 +40,16 @@ export const StepCard = React.memo(({ number, title, description, icon, index }:
       </div>
 
       {/* Content wrapper */}
-      <div className="relative z-10 flex flex-col h-full">
+      <div className="relative z-10 flex flex-col items-start text-left">
         <m.div 
           variants={iconVariants}
-          className="mb-6 md:mb-8 flex h-16 w-16 items-center justify-center transition-colors duration-300"
+          className="mb-4 md:mb-8 flex h-16 w-16 items-center justify-center transition-colors duration-300"
           aria-hidden="true"
         >
           {icon}
         </m.div>
         
-        <div className="flex flex-col gap-3 md:gap-4 mt-auto md:mt-0">
+        <div className="flex flex-col gap-3 md:gap-4 md:mt-0">
           <m.h3 className="font-headline font-bold text-2xl md:text-3xl tracking-tight text-white leading-[1.1] uppercase">
             {title}
           </m.h3>
