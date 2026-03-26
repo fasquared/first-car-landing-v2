@@ -1,7 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
-import { SUBMISSION_SETTINGS } from "@/config/settings";
+import { SUBMISSION_SETTINGS } from "@/config/server-settings";
 
 /**
  * Server Action для обработки данных формы.

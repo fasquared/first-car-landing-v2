@@ -35,20 +35,3 @@ export const SITE_CONTENT = {
   // Ссылка на гугл таблицу
   POLICY_URL: "https://docs.google.com/document/d/1yfMFwWQbmoWtxlHvAslXqTjFKo57oH4QpfgfXAXJh5M/edit?tab=t.0",
 };
-
-/**
- * 2. НАСТРОЙКИ ОТПРАВКИ (Техническая часть)
- * Сюда приходят заявки. Эти данные сайт берет из файла .env.local
- */
-export const SUBMISSION_SETTINGS = {
-  // Куда слать уведомления на Email
-  NOTIFICATION_EMAIL: "fasquared@yandex.ru",
-
-  // Технические параметры (скрыты в .env.local)
-  TELEGRAM_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
-  TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
-  RESEND_API_KEY: process.env.RESEND_API_KEY,
-
-  // URL вебхука Google Таблиц (можно менять здесь или в .env.local)
-  GOOGLE_SHEETS_URL: process.env.GOOGLE_SHEETS_WEBHOOK_URL || "https://script.google.com/macros/s/AKfycbwkCjk--PL5xug6s4xeULw-R5vuLzCSeCwTiaDuDufMAXzdOoPhkOaASrCWT0uMmCY4qw/exec",
-};
