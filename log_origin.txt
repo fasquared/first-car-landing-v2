@@ -1,0 +1,4 @@
+2a0e59f fix: update next.js to 15.1.8 for CVE-2025-66478 security patch, fix eslint errors, add seo files
+3ea50e6 fix: eslint errors and image optimization for vercel build
+59f8a14 chore: final seo prep and build verification
+8d4ea91 feat: finalize first car landing page with centralized settings and lead capture

@@ -1,0 +1,5 @@
+error: pathspec 'chore:' did not match any file(s) known to git
+error: pathspec 'upgrade' did not match any file(s) known to git
+error: pathspec 'Next.js' did not match any file(s) known to git
+error: pathspec 'to' did not match any file(s) known to git
+error: pathspec '16.2.0\ --no-verify ' did not match any file(s) known to git

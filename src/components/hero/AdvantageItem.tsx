@@ -21,7 +21,7 @@ export const AdvantageItem = React.memo(({ icon, text }: AdvantageItemProps) => 
       <m.div 
         variants={iconVariants}
         whileHover="hover"
-        className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-fixed shadow-[0_0_20px_rgba(3,253,0,0.3)] transition-shadow duration-300 group-hover:shadow-[0_0_30px_rgba(3,253,0,0.5)]"
+        className="flex-shrink-0 w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white shadow-[0_0_20px_rgba(15,82,186,0.3)] transition-shadow duration-300 group-hover:shadow-[0_0_30px_rgba(15,82,186,0.5)]"
       >
         {icon}
       </m.div>

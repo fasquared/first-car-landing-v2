@@ -9,38 +9,31 @@ import {
   fadeInUp,
   staggerContainer,
 } from "@/lib/animations";
-import { 
-  IconCalculation, 
-  IconContract, 
-  IconDelivery, 
-  IconCustoms 
-} from "./StepIcons";
-
 // Данные вынесены для чистоты компонента
 const purchaseSteps = [
   {
     number: "01",
     title: "ПРОСЧЕТ СТОИМОСТИ",
     description: "Бесплатный расчет со всеми расходами до вашего города.",
-    icon: <IconCalculation />,
+    icon: "/images/steps/calc_3d.png",
   },
   {
     number: "02",
     title: "ЗАКЛЮЧЕНИЕ ДОГОВОРА",
     description: "Согласование бюджета, выбор авто и подписание договора.",
-    icon: <IconContract />,
+    icon: "/images/steps/contract_3d.png",
   },
   {
     number: "03",
     title: "ПОКУПКА И ДОСТАВКА",
     description: "Покупка авто, оформление экспорта и доставка в РФ.",
-    icon: <IconDelivery />,
+    icon: "/images/steps/delivery_3d.png",
   },
   {
     number: "04",
     title: "ТАМОЖНЯ И ОТПРАВКА",
     description: "Растаможка, прохождение лаборатории и доставка клиенту.",
-    icon: <IconCustoms />,
+    icon: "/images/steps/customs_3d.png",
   },
 ];
 
@@ -50,7 +43,7 @@ export const PurchaseProcess = () => {
   const { openModal } = useModal();
   return (
     <section id="steps" className="bg-background w-full select-none overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 md:py-24 flex flex-col gap-12 md:gap-24 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 pt-4 pb-12 md:pt-8 md:pb-24 flex flex-col gap-6 md:gap-10 relative">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <m.h2
@@ -64,29 +57,24 @@ export const PurchaseProcess = () => {
           </m.h2>
         </div>
 
-        {/* Cards Grid: Bento Layout (7/5 + 5/7) */}
+        {/* Cards Grid: Standard 2x2 Layout */}
         <m.div 
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch relative z-10"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 relative z-10"
         >
           {purchaseSteps.map((step, index) => {
-            const isWide = (index === 0 || index === 3);
             return (
               <m.div 
                 key={step.number} 
                 variants={fadeInUp}
-                className={cn(
-                  "col-span-1",
-                  isWide ? "lg:col-span-7" : "lg:col-span-5"
-                )}
+                className="col-span-1"
               >
                 <StepCard 
                   index={index}
                   {...step}
-                  isWide={isWide}
                 />
               </m.div>
             );
@@ -99,7 +87,7 @@ export const PurchaseProcess = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          className="flex justify-center mt-6 md:mt-8 relative z-10"
+          className="flex justify-center mt-0 relative z-10"
         >
           <Button
             size="lg"

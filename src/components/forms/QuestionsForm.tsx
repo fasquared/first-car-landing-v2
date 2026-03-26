@@ -70,9 +70,7 @@ export function QuestionsForm({ onSuccess }: QuestionsFormProps) {
   }
 
   return (
-    <div className="flex-1 p-6 md:p-10 bg-zinc-950/60 backdrop-blur-2xl rounded-[2rem] md:rounded-[3rem] border-4 border-white/10 shadow-2xl flex flex-col justify-center transition-all duration-300 hover:border-white/20 relative overflow-hidden group w-full">
-      {/* Subtle Accent Glow */}
-      <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary-container/10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+    <div className="flex-1 p-8 md:p-16 bg-zinc-950/60 backdrop-blur-2xl rounded-[2rem] md:rounded-[3rem] border-4 border-white/10 shadow-2xl flex flex-col justify-center relative overflow-hidden w-full">
       
       <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
         <div className="space-y-2">
@@ -84,7 +82,7 @@ export function QuestionsForm({ onSuccess }: QuestionsFormProps) {
             name="name"
             type="text"
             className={cn(
-              "w-full bg-black/40 border rounded-2xl px-6 py-4 focus:outline-none transition-all text-white placeholder-zinc-700 font-medium",
+              "w-full bg-black/40 border rounded-2xl px-8 py-5 focus:outline-none transition-all text-white placeholder-zinc-700 text-lg font-medium",
               errors.name ? "border-error-container" : "border-white/10 focus:border-primary-container focus:ring-1 focus:ring-primary-container"
             )}
             placeholder="Иван Иванов"
@@ -102,7 +100,7 @@ export function QuestionsForm({ onSuccess }: QuestionsFormProps) {
             type="tel"
             onChange={(e) => e.target.value = formatPhone(e.target.value)}
             className={cn(
-              "w-full bg-black/40 border rounded-2xl px-6 py-4 focus:outline-none transition-all text-white placeholder-zinc-700 font-medium",
+              "w-full bg-black/40 border rounded-2xl px-8 py-5 focus:outline-none transition-all text-white placeholder-zinc-700 text-lg font-medium",
               errors.phone ? "border-error-container" : "border-white/10 focus:border-primary-container focus:ring-1 focus:ring-primary-container"
             )}
             placeholder="+7 (999) 000-00-00"

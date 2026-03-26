@@ -1,0 +1,5 @@
+49e9862 refactor: оптимизация UI компонентов, очистка временных файлов и унификация стилей
+4590d8d Perf: implement Framer Motion lazy loading and dynamic Lenis import, fix linting errors
+3ea50e6 fix: eslint errors and image optimization for vercel build
+59f8a14 chore: final seo prep and build verification
+8d4ea91 feat: finalize first car landing page with centralized settings and lead capture
